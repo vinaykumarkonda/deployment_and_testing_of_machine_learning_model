@@ -1,0 +1,55 @@
+# Package Overview
+package_name: classification_model
+
+# Data Files
+data_url: https://www.openml.org/data/get_csv/16826755/phpMYEkMl
+
+# Variables
+# The variable we are attempting to predict (survived)
+target: survived
+
+pipeline_name: classification_model
+pipeline_save_file: classification_model_output_v
+
+# drop unnecessary variables
+drop_features:
+ - name
+ - ticket
+ - boat
+ - body
+ - home_dest
+
+# numerical variables
+numerical_vars:
+ - age
+ - fare
+
+# extract title variable
+title_feature: title
+extract_title: name
+
+# extract letter variable
+transform_vars:
+ - cabin
+
+# categorical variables
+categorical_vars:
+ - sex
+ - cabin
+ - embarked
+ - title
+
+variables_to_rename:
+ home.dest: home_dest
+
+# set train/test split
+test_size: 0.2
+
+# to set the random seed
+random_state: 42
+
+# rare label tolerance level
+rare_label_tol: 0.05
+
+# LogisticRegression regularization alpha
+alpha: 0.005
